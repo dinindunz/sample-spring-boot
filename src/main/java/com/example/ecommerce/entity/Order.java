@@ -180,9 +180,13 @@ public class Order {
         this.deliveredAt = LocalDateTime.now();
     }
 
+    public void markAsPreparing() {
+        this.status = OrderStatus.PREPARING;
+    }
+
     // Enums
     public enum OrderStatus {
-        PENDING, CONFIRMED, PROCESSING, SHIPPED, DELIVERED, CANCELLED, RETURNED
+        PENDING, CONFIRMED, PREPARING, PROCESSING, SHIPPED, DELIVERED, CANCELLED, RETURNED
     }
 
     public enum PaymentStatus {
