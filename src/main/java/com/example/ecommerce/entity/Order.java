@@ -169,6 +169,10 @@ public class Order {
                 .sum();
     }
 
+    public void markAsPreparing() {
+        this.status = OrderStatus.PREPARING;
+    }
+
     public void markAsShipped(String trackingNumber) {
         this.status = OrderStatus.SHIPPED;
         this.shippedAt = LocalDateTime.now();
@@ -182,7 +186,7 @@ public class Order {
 
     // Enums
     public enum OrderStatus {
-        PENDING, CONFIRMED, PROCESSING, SHIPPED, DELIVERED, CANCELLED, RETURNED
+        PENDING, CONFIRMED, PREPARING, PROCESSING, SHIPPED, DELIVERED, CANCELLED, RETURNED
     }
 
     public enum PaymentStatus {
