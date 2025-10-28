@@ -175,6 +175,10 @@ public class Order {
         this.trackingNumber = trackingNumber;
     }
 
+    public void markAsPreparing() {
+        this.status = OrderStatus.PREPARING;
+    }
+
     public void markAsDelivered() {
         this.status = OrderStatus.DELIVERED;
         this.deliveredAt = LocalDateTime.now();
@@ -182,7 +186,7 @@ public class Order {
 
     // Enums
     public enum OrderStatus {
-        PENDING, CONFIRMED, PROCESSING, SHIPPED, DELIVERED, CANCELLED, RETURNED
+        PENDING, CONFIRMED, PREPARING, PROCESSING, SHIPPED, DELIVERED, CANCELLED, RETURNED
     }
 
     public enum PaymentStatus {
